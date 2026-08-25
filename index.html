@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verve — Social Moments</title>
+    <script>
+      (function() {
+        try {
+          const saved = localStorage.getItem('verve_theme') || localStorage.getItem('pulse_theme');
+          const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (isDark) document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-canvas dark:bg-dark-canvas text-ink dark:text-dark-ink">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
